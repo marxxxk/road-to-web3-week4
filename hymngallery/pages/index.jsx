@@ -14,7 +14,7 @@ const Home = () => {
     setRes(1);
     console.log("fetching nfts");
     const api_key = "f3fzGySyOsVFsW0gcbKDqLWRyjvqw2BO"
-    const baseURL = `https://polygon-mainnet.alchemyapi.io/v2/${api_key}/getNFTs/`;
+    const baseURL = `https://polygon-mainnet.g.alchemyapi.io/v2/${api_key}/getNFTs/`;
     var requestOptions = {
         method: 'GET'
       };
@@ -47,7 +47,7 @@ const Home = () => {
         method: 'GET'
       };
       const api_key = "f3fzGySyOsVFsW0gcbKDqLWRyjvqw2BO"
-      const baseURL = `https://polygon-mainnet.alchemyapi.io/v2/${api_key}/getNFTsForCollection/`;
+      const baseURL = `https://polygon-mainnet.g.alchemyapi.io/v2/${api_key}/getNFTsForCollection/`;
       const fetchURL = `${baseURL}?contractAddress=${collection}&withMetadata=${"true"}`;
       const nfts = await fetch(fetchURL, requestOptions).then(data => {setRes(2); return data.json();})
       if (nfts) {
@@ -105,7 +105,7 @@ const Home = () => {
       <div className="flex flex-col justify-start gap-y-12 mt-4 gap-x-2 absolute bottom-[20px] left-[50px]">
       {
         
-        NFTs.length > 1 ? ( 
+        NFTs.length ? ( 
           <div className="flex m-4">
             <InfiniteScroll
               dataLength={100}
